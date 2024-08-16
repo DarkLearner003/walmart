@@ -21,11 +21,7 @@ export default function RootLayout({
         <header className="bg-blue-600 text-white p-4 shadow-lg flex items-center justify-between">
           <div className="flex items-center">
             <span className="ml-4 font-bold text-lg">Walmart</span>
-            <img
-              src="/walmart-square.jpg"
-              alt="Walmart Logo"
-              className="h-10"
-            />
+            <img src="/walmartttt.jpg" alt="Walmart Logo" className="h-10" />
           </div>
           <SearchBar />
         </header>

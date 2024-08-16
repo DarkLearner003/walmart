@@ -53,9 +53,9 @@ export default function SearchBar() {
         }}
       >
         <input
-          className="flex-grow p-2 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition"
+          className="flex-grow p-2 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition text-black" // Added text-black class
           type="text"
-          placeholder="Describe the product you need "
+          placeholder="Describe the product you need"
           onChange={(e) => setQuery(e.target.value)}
           value={query}
         />
