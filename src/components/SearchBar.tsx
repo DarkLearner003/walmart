@@ -45,15 +45,19 @@ export default function SearchBar() {
 
   return (
     <>
+       <div className="flex items-center">
+            <span className="ml-4 font-bold text-lg">Walmart</span>
+            <img src="/walmartttt.jpg" alt="Walmart Logo" className="h-10" />
+          </div>
       <form
-        className="flex border-2 w-full max-w-lg mx-auto p-2 rounded-3xl shadow-md bg-white"
+        className="flex border-2 w-full max-w-lg mx-auto p-1 rounded-3xl shadow-md bg-white"
         onSubmit={(e) => {
           e.preventDefault();
           router.push(`/search?query=${encodeURIComponent(query)}`);
         }}
       >
         <input
-          className="flex-grow p-2 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition text-black" // Added text-black class
+          className="flex-grow p-1 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition text-black" // Added text-black class
           type="text"
           placeholder="Describe the product you need"
           onChange={(e) => setQuery(e.target.value)}

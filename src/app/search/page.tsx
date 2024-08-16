@@ -118,9 +118,18 @@ The Canon PowerShot SX740 HS offers a 20.3MP sensor, 40x optical zoom, and 4K vi
   ];
 
   return (
-    <div className="flex flex-col gap-3 w-full h-full bg-[#F9F9F9] rounded-3xl px-6 py-5">
+    <div className="flex flex-col gap-3 w-full h-full bg-[#F9F9F9] rounded-3xl px-6 py-8">
       <div className="flex flex-col justify-between">
-        <div className="font-normal text-xs gradient-your-apps">AI NOTE</div>
+      <div className="bg-gray-200 text-black font-bold text-sm p-2 rounded-full shadow-lg mb-4 w-24">
+  AI NOTE
+</div>
+
+
+{/* <div className="font-normal text-xs gradient-your-apps rounded-full bg-gray-300 absolute top-28 left-10 mt-4 ml-4 px-3 py-1 text-center mb-4">
+  AI NOTE
+</div> */}
+
+
         {query === 'cameras' ? (
           <div className="">
             Here are some great camera recommendations for a school-going boy
@@ -157,7 +166,7 @@ The Canon PowerShot SX740 HS offers a 20.3MP sensor, 40x optical zoom, and 4K vi
               </div>
             ))
           : cameras.map((category, index) => (
-              <div key={index} className="mb-8">
+              <div key={index} className="mb-8 p-2">
                 <h2 className="text-2xl font-semibold text-blue-600 mb-4">
                   {index + 1}.{category.category}
                 </h2>
