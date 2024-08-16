@@ -107,7 +107,7 @@ The Canon PowerShot SX740 HS offers a 20.3MP sensor, 40x optical zoom, and 4K vi
       features:
         'Waterproof, drop-proof, and capable of high-quality images and 4K video. Suitable for outdoor adventures.',
       price: 'On the higher side but worth it for durability and performance.',
-    },
+    }, 
     {
       title: 'Panasonic Lumix DMC-G7',
       type: 'Mirrorless Camera',
