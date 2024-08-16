@@ -11,14 +11,18 @@ export default function CameraOptions() {
       options: [
         {
           name: 'Canon EOS 3000D (Body) Digital SLR Camera',
+          desc: `
+The Canon EOS 3000D features an 18MP sensor, Digic 4+ processor, and built-in Wi-Fi, with 9-point autofocus and full HD video. It’s an affordable, beginner-friendly DSLR perfect for learning photography with easy controls and good image quality.`,
           price: 'Rs. 24,999',
         },
         {
-          name: 'Canon EOS 1500D (EF-S 18-55mm f/3.5-f/5.6 IS II Kit Lens) Digital SLR Camera',
+          name: `Canon EOS 1500D (EF-S 18-55mm f/3.5-f/5.6 IS II Kit Lens) Digital SLR Camera`,
+          desc: `The Canon EOS 1500D features a 24.1MP sensor, Digic 4+ processor, and EF-S 18-55mm lens, with 9-point autofocus and full HD video. It offers high-resolution photos and improved low-light performance, making it ideal for both beginners and casual photographers.`,
           price: 'Rs. 22,999',
         },
         {
           name: 'Canon EOS 1300D (EF-S 18-55mm f/3.5-f/5.6 IS II Kit Lens) Digital SLR Camera',
+          desc: `The Canon EOS 1300D features an 18MP sensor, Digic 4+ processor, and EF-S 18-55mm lens with built-in Wi-Fi and NFC. It’s ideal for beginners due to its affordability, essential features, and good image quality.`,
           price: 'Rs. 26,500',
         },
       ],
@@ -29,6 +33,8 @@ export default function CameraOptions() {
         {
           name: 'GoPro Hero 7 Sports & Action Camera',
           price: 'Rs. 25,190',
+          desc: `
+The GoPro Hero 7 is a rugged, waterproof action camera with 4K recording at 60fps, HyperSmooth stabilization, and advanced features like TimeWarp. It’s perfect for sports due to its durability, compact size, and ability to capture smooth, high-quality footage in fast-paced action.`,
         },
       ],
     },
@@ -38,6 +44,8 @@ export default function CameraOptions() {
         {
           name: 'Canon PowerShot SX740 HS Point & Shoot Camera',
           price: 'Rs. 23,999',
+          desc: `
+The Canon PowerShot SX740 HS offers a 20.3MP sensor, 40x optical zoom, and 4K video recording in a compact design. Its powerful zoom and portability make it ideal for travel and casual photography.`,
         },
       ],
     },
@@ -47,6 +55,7 @@ export default function CameraOptions() {
         {
           name: 'Sony Handycam HDR-CX405 Camcorder Camera',
           price: 'Rs. 21,900',
+          desc: `The Sony Handycam HDR-CX405 is a compact camcorder with a 26.8mm wide-angle lens, 30x optical zoom, and full HD video recording with SteadyShot stabilization. It also captures 9.2MP still images. Lightweight and user-friendly, it’s ideal for capturing smooth, high-quality videos of events, family moments, and travel.`,
         },
       ],
     },
@@ -56,6 +65,7 @@ export default function CameraOptions() {
         {
           name: 'Kodak Pixpro AZ252 Bridge Camera',
           price: 'Rs. 20,646',
+          desc: `The Kodak Pixpro AZ252 is a bridge camera with a 16MP sensor, 25x optical zoom, and 720p HD video recording. It features optical image stabilization and multiple scene modes for versatile shots. Ideal for beginners, it offers DSLR-like flexibility with point-and-shoot simplicity at an affordable price.`,
         },
       ],
     },
@@ -132,12 +142,10 @@ export default function CameraOptions() {
           ? schoolCameras.map((category, index) => (
               <div key={index} className="mb-8">
                 <h2 className="text-2xl font-semibold text-blue-600 mb-4">
-                 {index+1}.{category.type}
+                  {index + 1}.{category.type}
                 </h2>
                 <ul className="space-y-3">
-                  <li
-                    className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center"
-                  >
+                  <li className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
                     <span className="text-gray-800 text-lg">
                       {category.title}
                     </span>
@@ -151,23 +159,24 @@ export default function CameraOptions() {
           : cameras.map((category, index) => (
               <div key={index} className="mb-8">
                 <h2 className="text-2xl font-semibold text-blue-600 mb-4">
-                  {index+1}.{category.category}
+                  {index + 1}.{category.category}
                 </h2>
-                <ul className="space-y-3">
-                  {category.options.map((option, idx) => (
-                    <li
-                      key={idx}
-                      className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center"
-                    >
-                      <span className="text-gray-800 text-lg">
+                {category.options.map((option, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center flex-col mb-3"
+                  >
+                    <div className="flex justify-between w-full">
+                      <span className="text-gray-800 text-lg font-bold">
                         {option.name}
                       </span>
                       <span className="text-green-600 font-bold">
                         {option.price}
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                    </div>
+                    <p>{option.desc}</p>
+                  </div>
+                ))}
               </div>
             ))}
       </div>
