@@ -1,47 +1,58 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import Header from '@/components/Header';
+import {useRouter} from 'next/navigation';
+import {useState} from 'react';
 
 export default function Home() {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const handleSearch = (e) => {
     e.preventDefault();
     router.push(`/search?query=${encodeURIComponent(query)}`);
   };
-
+  const [toggleAi, setToggleAi] = useState(false);
   return (
-    <main className="p-8 bg-gray-100 flex-grow">
-      <section className="mb-8 bg-blue-50 p-6 rounded-lg shadow-md">
-        <h3 className="text-xl font-semibold text-blue-700">Welcome back!</h3>
-        <p className="text-yellow-500 font-semibold text-lg mt-2">
-          Looking for something specific?
-        </p>
-        <p className="text-gray-700 mt-2">
-          Our AI-powered search is here to help you find exactly what you need.
-          Type below to get started!
-        </p>
-        <form
-          className="relative mt-4 flex items-center"
-          onSubmit={handleSearch}
-        >
-          <input
-            type="text"
-            placeholder="Describe the product you are looking for..."
-            className="w-full p-3 border rounded-lg shadow-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button
-            className="ml-2 bg-blue-500 text-white rounded-full p-2 shadow-md hover:bg-blue-600 transition"
-            type="submit"
+    <main className="relative p-8 bg-gray-100 flex-grow">
+      {/* <Header /> */}
+
+      <button
+        className="absolute ml-2 bg-gray-500 text-white rounded-full p-2 shadow-md hover:bg-gray-600 transition right-80 -top-[6.5rem]"
+        onClick={() => setToggleAi((prev)=>!prev)}
+      >
+        ✨AI Search
+      </button>
+      {toggleAi && (
+        <section className="mb-8 bg-blue-50 p-6 rounded-lg shadow-md">
+          <h3 className="text-xl font-semibold text-blue-700">Welcome back!</h3>
+          <p className="text-yellow-500 font-semibold text-lg mt-2">
+            Looking for something specific?
+          </p>
+          <p className="text-gray-700 mt-2">
+            Our AI-powered search is here to help you find exactly what you
+            need. Type below to get started!
+          </p>
+          <form
+            className="relative mt-4 flex items-center"
+            onSubmit={handleSearch}
           >
-            🔍
-          </button>
-        </form>
-      </section>
+            <input
+              type="text"
+              placeholder="Describe the product you are looking for..."
+              className="w-full p-3 border rounded-lg shadow-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button
+              className="ml-2 bg-blue-500 text-white rounded-full p-2 shadow-md hover:bg-blue-600 transition"
+              type="submit"
+            >
+              🔍
+            </button>
+          </form>
+        </section>
+      )}
 
       <section>
         <h2 className="text-2xl font-bold mb-6 text-blue-600">

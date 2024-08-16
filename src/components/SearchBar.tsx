@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import {useRouter} from 'next/navigation';
+import {useState} from 'react';
 
-export default function SearchBar({ onToggleAISection }) {
+export default function SearchBar({onToggleAISection}) {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [ismemoryModalOpen, setIsmemoryModalOpen] = useState(false);
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const [memory, setMemory] = useState([]);
-  const [newMemory, setNewMemory] = useState("");
+  const [newMemory, setNewMemory] = useState('');
   const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
+  const [newTask, setNewTask] = useState('');
 
   const toggleMemoryModal = () => {
     setIsmemoryModalOpen(!ismemoryModalOpen);
@@ -24,7 +24,7 @@ export default function SearchBar({ onToggleAISection }) {
   const addMemory = () => {
     if (newMemory.trim()) {
       setMemory([...memory, newMemory]);
-      setNewMemory("");
+      setNewMemory('');
     }
   };
 
@@ -35,7 +35,7 @@ export default function SearchBar({ onToggleAISection }) {
   const addTask = () => {
     if (newTask.trim()) {
       setTasks([...tasks, newTask]);
-      setNewTask("");
+      setNewTask('');
     }
   };
 
@@ -45,20 +45,19 @@ export default function SearchBar({ onToggleAISection }) {
 
   return (
     <>
-       <div className="flex items-center">
-            <span className="ml-4 font-bold text-lg">Walmart</span>
-            <img src="/walmartttt.jpg" alt="Walmart Logo" className="h-10" />
-          </div>
+      <div className="flex items-center">
+        <span className="ml-4 font-bold text-lg">SmallMart</span>
+        {/* <img src="/walmartttt.jpg" alt="Walmart Logo" className="h-10" /> */}
+      </div>
       <form
-        className="flex border-2 w-full max-w-lg mx-auto p-1 rounded-3xl shadow-md bg-white"
+        className="flex  w-full max-w-lg mx-auto p-1 rounded-3xl shadow-md bg-white"
         onSubmit={(e) => {
           e.preventDefault();
           router.push(`/search?query=${encodeURIComponent(query)}`);
         }}
       >
         <input
-          className="flex-grow p-2 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition text-black"
-
+          className="flex-grow p-2 rounded-3xl  focus:outline-none transition text-black"
           type="text"
           placeholder="Search everything at Walmart online and in store "
           onChange={(e) => setQuery(e.target.value)}
@@ -70,16 +69,10 @@ export default function SearchBar({ onToggleAISection }) {
         >
           🔍
         </button>
-        <button
-          className="ml-2 bg-gray-500 text-white rounded-full p-2 shadow-md hover:bg-gray-600 transition"
-          onClick={() => onToggleAISection(true)}
-        >
-          🤖
-        </button>
       </form>
       <div className="fixed top-2 right-2 space-x-2">
         <button
-          className="bg-blue-500 text-white rounded-full p-2 shadow-md hover:bg-blue-600 transition"
+          className="bg-blue-500 text-white rounded-full p-2 shadow-md hover:bg-blue-600 transition "
           onClick={toggleMemoryModal}
         >
           M
@@ -99,7 +92,7 @@ export default function SearchBar({ onToggleAISection }) {
             <h2 className="text-2xl font-bold mb-4">Memories</h2>
             <input
               type="text"
-              className="border p-2 rounded w-full mb-4 border-gray-300 focus:outline-none focus:border-blue-500 transition"
+              className=" p-2 rounded w-full mb-4  focus:outline-none transition"
               placeholder="Add a new memory"
               value={newMemory}
               onChange={(e) => setNewMemory(e.target.value)}
