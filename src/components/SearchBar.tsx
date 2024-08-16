@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function SearchBar() {
+export default function SearchBar({ onToggleAISection }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [ismemoryModalOpen, setIsmemoryModalOpen] = useState(false);
@@ -53,9 +53,9 @@ export default function SearchBar() {
         }}
       >
         <input
-          className="flex-grow p-2 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition text-black" // Added text-black class
+          className="flex-grow p-2 rounded-3xl border border-gray-300 focus:outline-none focus:border-blue-500 transition text-black"
           type="text"
-          placeholder="Describe the product you need"
+          placeholder="Search everything at Walmart online and in store "
           onChange={(e) => setQuery(e.target.value)}
           value={query}
         />
@@ -64,6 +64,12 @@ export default function SearchBar() {
           type="submit"
         >
           🔍
+        </button>
+        <button
+          className="ml-2 bg-gray-500 text-white rounded-full p-2 shadow-md hover:bg-gray-600 transition"
+          onClick={() => onToggleAISection(true)}
+        >
+          🤖
         </button>
       </form>
       <div className="fixed top-2 right-2 space-x-2">
@@ -121,7 +127,7 @@ export default function SearchBar() {
             </div>
             <button
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-              onClick={toggleMemoryModal}
+              onClick={() => onToggleAISection(false)}
             >
               &#x2715;
             </button>
